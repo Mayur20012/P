@@ -1,0 +1,17 @@
+let myArray = [1, 2, 3, 4, 5];
+// Remove specific element
+function removeElement(arr, element) {
+return arr.filter(item=> item!== element);
+}
+// Check if array contains a value
+function containsValue(arr, value) {
+return arr.includes(value);
+}
+// Empty an array
+function emptyArray(arr) {
+arr.length =0;
+return arr;
+}
+console.log(removeElement(myArray, 3));
+console.log (containsValue(myArray,  5));
+console.log(emptyArray(myArray));

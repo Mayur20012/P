@@ -1,0 +1,34 @@
+function calculateArea() {
+  // Area of a Triangle
+  function areaOfTriangle(base, height) {
+    return (base * height) / 2;
+  }
+
+  // Area of a Rectangle
+  function areaOfRectangle(length, width) {
+    return length * width;
+  }
+
+  // Area of a Circle
+  function areaOfCircle(radius) {
+    return Math.PI * radius * radius; // Math.PI gives the value of π
+  }
+
+  // Example usage:
+  // Triangle
+  const base = 5; // Base of the triangle
+  const height = 10; // Height of the triangle
+  console.log(`Area of Triangle with base ${base} and height ${height}: ${areaOfTriangle(base, height)}`);
+
+  // Rectangle
+  const length = 7; // Length of the rectangle
+  const width = 4; // Width of the rectangle
+  console.log(`Area of Rectangle with length ${length} and width ${width}: ${areaOfRectangle(length, width)}`);
+
+  // Circle
+  const radius = 3; // Radius of the circle
+  console.log(`Area of Circle with radius ${radius}: ${areaOfCircle(radius).toFixed(2)}`);
+}
+
+// Call the function to execute
+calculateArea();

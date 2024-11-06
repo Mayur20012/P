@@ -1,0 +1,41 @@
+// Function to perform different Set operations
+function setOperations() {
+  // Example sets
+  const setA = new Set([1, 2, 3, 4, 5]);
+  const setB = new Set([3, 4, 5, 6, 7]);
+
+  // a. Union of setA and setB
+  function union(setA, setB) {
+    return new Set([...setA, ...setB]);
+  }
+
+  // b. Intersection of setA and setB
+  function intersection(setA, setB) {
+    return new Set([...setA].filter(element => setB.has(element)));
+  }
+
+  // c. Difference of setA from setB (elements in setA but not in setB)
+  function difference(setA, setB) {
+    return new Set([...setA].filter(element => !setB.has(element)));
+  }
+
+  // d. Set Difference (Symmetric Difference)
+  // Elements in either setA or setB, but not in both
+  function symmetricDifference(setA, setB) {
+    const differenceAB = difference(setA, setB);
+    const differenceBA = difference(setB, setA);
+    return new Set([...differenceAB, ...differenceBA]);
+  }
+
+  // Display results
+  console.log("Set A: ", [...setA]);
+  console.log("Set B: ", [...setB]);
+
+  console.log("\nUnion: ", [...union(setA, setB)]);
+  console.log("Intersection: ", [...intersection(setA, setB)]);
+  console.log("Difference (A - B): ", [...difference(setA, setB)]);
+  console.log("Symmetric Difference: ", [...symmetricDifference(setA, setB)]);
+}
+
+// Call the function to execute the set operations
+setOperations();

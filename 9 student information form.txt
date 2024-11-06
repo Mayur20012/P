@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Form</title>
+  <style>
+    body { font-family: Arial, sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+    .container { max-width: 400px; background: #fff; padding: 20px; border-radius: 5px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); }
+    h2 { text-align: center; }
+    input, select { width: 100%; padding: 8px; margin: 10px 0; border: 1px solid #ccc; border-radius: 3px; }
+    .error { color: red; font-size: 0.85em; }
+    .success { color: green; text-align: center; }
+    button { width: 100%; padding: 10px; background: #007BFF; color: #fff; border: none; border-radius: 3px; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Student Information Form</h2>
+    <form id="form">
+      <input type="text" id="name" placeholder="Name">
+      <input type="text" id="address" placeholder="Address">
+      <input type="text" id="city" placeholder="City">
+      <select id="gender">
+        <option value="">Select Gender</option>
+        <option>Male</option><option>Female</option><option>Other</option>
+      </select>
+      <input type="text" id="mobile" placeholder="Mobile Number">
+      <input type="email" id="email" placeholder="Email ID">
+      <div class="error" id="error"></div>
+      <button type="button" onclick="validateForm()">Submit</button>
+      <div class="success" id="success"></div>
+    </form>
+  </div>
+  <script>
+    function validateForm() {
+      const fields = {
+        name: /^[a-zA-Z ]{2,}$/,
+        address: /.+/,
+        city: /^[a-zA-Z ]+$/,
+        gender: /.+/,
+        mobile: /^\d{10}$/,
+        email: /.+@.+\..+/
+      };
+      let isValid = true, errorMsg = "", errorElem = document.getElementById("error");
+      
+      for (let id in fields) {
+        const value = document.getElementById(id).value.trim();
+        if (!fields[id].test(value)) {
+          isValid = false;
+          errorMsg = `Invalid ${id}`;
+          break;
+        }
+      }
+      errorElem.textContent = isValid ? "" : errorMsg;
+      document.getElementById("success").textContent = isValid ? "Congratulations! Welcome!" : "";
+    }
+  </script>
+</body>
+</html>

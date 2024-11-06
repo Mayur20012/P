@@ -1,0 +1,12 @@
+function generateMultiplicationTable(number) {
+  console.log(`Multiplication Table for ${number}:`);
+  
+  // Loop from 1 to 10 to generate the table
+  for (let i = 1; i <= 10; i++) {
+    console.log(`${number} x ${i} = ${number * i}`);
+  }
+}
+
+// Example usage
+const number = 5; // You can change this to any number you like
+generateMultiplicationTable(number);

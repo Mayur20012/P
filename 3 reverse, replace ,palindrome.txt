@@ -1,0 +1,30 @@
+function stringOperations(str) {
+  console.log("Original String: ", str);
+
+  // 1. Reverse the string
+  function reverseString(s) {
+    return s.split("").reverse().join("");
+  }
+  const reversedString = reverseString(str);
+  console.log("Reversed String: ", reversedString);
+
+  // 2. Replace characters in the string
+  // Example: Replace all occurrences of 'a' with '@'
+  function replaceCharacters(s, target, replacement) {
+    return s.split(target).join(replacement);
+  }
+  const replacedString = replaceCharacters(str, 'a', '@');
+  console.log("Replaced String (replacing 'a' with '@'): ", replacedString);
+
+  // 3. Check if the string is a palindrome
+  function isPalindrome(s) {
+    const cleanedString = s.replace(/[\W_]/g, "").toLowerCase(); // Remove non-alphanumeric characters & convert to lowercase
+    return cleanedString === cleanedString.split("").reverse().join("");
+  }
+  const palindromeCheck = isPalindrome(str);
+  console.log("Is Palindrome: ", palindromeCheck);
+}
+
+// Example usage
+const inputString = "A man a plan a canal Panama";
+stringOperations(inputString);

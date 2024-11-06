@@ -1,0 +1,39 @@
+// Function to compare two strings using various methods
+function compareStrings(string1, string2) {
+  console.log("String 1: ", string1);
+  console.log("String 2: ", string2);
+
+  // Method 1: Strict Equality Operator (===)
+  console.log("\n1. Strict Equality Operator (===):");
+  if (string1 === string2) {
+    console.log("The strings are exactly equal (===).");
+  } else {
+    console.log("The strings are not exactly equal (===).");
+  }
+
+  // Method 2: Compare String Lengths
+  console.log("\n2. Compare String Lengths:");
+  if (string1.length === string2.length) {
+    console.log("The strings have the same length.");
+  } else if (string1.length > string2.length) {
+    console.log(`"${string1}" is longer than "${string2}".`);
+  } else {
+    console.log(`"${string1}" is shorter than "${string2}".`);
+  }
+
+  // Method 3: Using localeCompare() Method
+  console.log("\n3. Using localeCompare() Method:");
+  const comparison = string1.localeCompare(string2);
+  if (comparison === 0) {
+    console.log("The strings are equal according to localeCompare().");
+  } else if (comparison < 0) {
+    console.log(`"${string1}" comes before "${string2}" in lexicographical order.`);
+  } else {
+    console.log(`"${string1}" comes after "${string2}" in lexicographical order.`);
+  }
+}
+
+// Example usage
+const string1 = "apple";
+const string2 = "Apple";
+compareStrings(string1, string2);
